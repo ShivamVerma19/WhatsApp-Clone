@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.google.android.gms.tasks.Continuation
@@ -30,13 +31,44 @@ class ProfileActivity : AppCompatActivity() {
         FirebaseAuth.getInstance()
     }
 
+
+    val database by lazy{
+        FirebaseFirestore.getInstance()
+    }
+
     lateinit var downloadUrl : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
         profileiv.setOnClickListener {
             checkPermissionForImage()
+        }
+
+        profileNxtBtn.setOnClickListener {
+
+            profileNxtBtn.isEnabled = false
+            val name = profileName.text.toString()
+
+            if(name.isEmpty()){
+                Toast.makeText(this , "Please give your profile name" , Toast.LENGTH_SHORT).show()
+            }
+            else if(!::downloadUrl.isInitialized){
+                Toast.makeText(this , "Please add a dp" , Toast.LENGTH_SHORT).show()
+            }
+            else{
+
+                val user = User(name , downloadUrl , downloadUrl , auth.uid!!)
+                database.collection("User ->" + user.name)
+                    .document(auth.uid!!).set(user).addOnSuccessListener {
+                        startActivity(Intent(this , MainActivity::class.java))
+                    }
+                    .addOnFailureListener {
+                        profileNxtBtn.isEnabled = true 
+                        Toast.makeText(this , it.toString() , Toast.LENGTH_SHORT).show()
+                    }
+            }
         }
     }
 
@@ -116,7 +148,7 @@ class ProfileActivity : AppCompatActivity() {
                  }
              }
              .addOnFailureListener{
-
+                     Log.e("SHIVAM" , it.toString())
              }
     }
 }
