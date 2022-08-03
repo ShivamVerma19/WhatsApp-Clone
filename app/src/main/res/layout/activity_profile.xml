@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:orientation="vertical"
+    android:background = "@drawable/backgg">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Profile Info"
+        android:textSize = "35sp"
+        android:textColor = "#2a2a2a"
+        android:layout_gravity="center|top"
+        android:gravity = "center"
+        android:layout_marginTop ="10dp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Please provide your profile pic and name"
+        android:textSize = "20sp"
+        android:textColor = "#545454"
+        android:layout_gravity="center|top"
+        android:gravity = "center"
+        android:layout_marginTop ="40dp" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id = "@+id/profileiv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:gravity = "center"
+        android:layout_margin="60dp"
+        android:clickable="true"
+        android:focusable = "true"
+        android:adjustViewBounds = "true"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay = "@style/RoundedImageView"
+        android:src = "@drawable/defaultavatar"/>
+
+    <EditText
+        android:id = "@+id/profileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint = "Type your name here"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="80dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id = "@+id/profileNxtBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Next"
+        android:enabled="false"
+        android:paddingLeft = "20dp"
+        android:paddingRight = "20dp"
+        android:paddingTop = "10dp"
+        android:paddingBottom = "10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="70dp"
+        android:textColor = "@color/black"
+        app:cornerRadius="5dp"/>
+</LinearLayout>
