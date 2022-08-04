@@ -78,9 +78,7 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
                     progressDialog.dismiss()
                 }
 
-                val smsMessageSent = credential.smsCode
-                if (!smsMessageSent.isNullOrBlank())
-                    otpNumTv.setText(smsMessageSent)
+
 
                 signInWithPhoneAuthCredential(credential)
             }
@@ -205,9 +203,10 @@ class OtpActivity : AppCompatActivity(), View.OnClickListener {
 
                     if (::progressDialog.isInitialized) {
                         progressDialog.dismiss()
+                        notifyUserAndRetry("Your Phone Number Verification is failed.Retry again!")
                     }
 
-                    notifyUserAndRetry("Your Phone Number Verification is failed.Retry again!")
+
                 }
             }
     }

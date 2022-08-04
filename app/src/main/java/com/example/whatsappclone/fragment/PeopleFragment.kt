@@ -1,4 +1,4 @@
-package com.example.whatsappclone
+package com.example.whatsappclone.fragment
 
 import androidx.fragment.app.Fragment
 
