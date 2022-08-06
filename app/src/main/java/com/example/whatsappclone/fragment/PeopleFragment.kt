@@ -36,6 +36,8 @@ class PeopleFragment : Fragment() {
         FirebaseAuth.getInstance()
     }
 
+
+    //query
     val database by lazy{
         FirebaseFirestore.getInstance().collection(KEY)
             .orderBy("name", Query.Direction.ASCENDING)
@@ -46,6 +48,8 @@ class PeopleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         setUpAdapter()
+
+        //yaha pr error aaya tha yaad rkhna
         return inflater.inflate(R.layout.fragments_chats , container , false)
     }
 

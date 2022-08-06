@@ -48,12 +48,15 @@
             android:textColor = "@color/white"/>
     </com.google.android.material.appbar.MaterialToolbar>
 
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeToLoad"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/inputBox"
         android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/inputBox">
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="-3dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/msgRv"
@@ -65,7 +68,6 @@
 
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
     <RelativeLayout
         android:id="@+id/inputBox"

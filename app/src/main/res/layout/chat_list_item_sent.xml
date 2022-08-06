@@ -48,6 +48,8 @@
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:layout_marginLeft="16dp"/>
+
+
         </com.google.android.flexbox.FlexboxLayout>
 
 
