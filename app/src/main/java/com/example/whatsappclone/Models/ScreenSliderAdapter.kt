@@ -1,4 +1,4 @@
-package com.example.whatsappclone
+package com.example.whatsappclone.Models
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

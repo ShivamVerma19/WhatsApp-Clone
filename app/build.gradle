@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.whatsappclone"
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 32
         versionCode 1
         versionName "1.0"
@@ -70,5 +70,13 @@ dependencies {
 
 
 
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.1'
+    implementation 'androidx.paging:paging-runtime:3.1.1'
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    implementation "com.vanniktech:emoji-google:0.15.0"
 }

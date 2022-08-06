@@ -5,12 +5,11 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.annotation.RequiresApi
+import com.example.whatsappclone.Models.User
 import com.google.android.gms.tasks.Continuation
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -18,8 +17,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_profile.*
-import java.util.jar.Manifest
 
+const val  KEY : String = "Users"
 class ProfileActivity : AppCompatActivity() {
 
     val storage by lazy{
@@ -60,7 +59,7 @@ class ProfileActivity : AppCompatActivity() {
             else{
 
                 val user = User(name , downloadUrl , downloadUrl , auth.uid!!)
-                database.collection("User ->" + user.name)
+                database.collection(KEY)
                     .document(auth.uid!!).set(user).addOnSuccessListener {
                         startActivity(Intent(this , MainActivity::class.java))
                     }
