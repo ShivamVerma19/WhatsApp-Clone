@@ -3,7 +3,7 @@ package com.example.whatsappclone
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-import com.example.whatsappclone.Models.ScreenSliderAdapter
+import com.example.whatsappclone.Adapters.ScreenSliderAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = ScreenSliderAdapter(this)
 
         TabLayoutMediator(tabLayout , viewPager , TabLayoutMediator.TabConfigurationStrategy{ tab: TabLayout.Tab, pos: Int ->
-              when(pos){
-                  0 -> tab.text = "CHAT"
-                  1 -> tab.text = "PEOPLE"
-              }
+            when(pos){
+                0 -> tab.text = "CHAT"
+                1 -> tab.text = "PEOPLE"
+            }
         }).attach()
     }
 
