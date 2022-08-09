@@ -12,6 +12,7 @@
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id = "@+id/messageCardViewRecieve"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="0dp"
@@ -50,9 +51,18 @@
                 android:textSize="10sp"
                 tools:text="12:00 AM" />
         </com.google.android.flexbox.FlexboxLayout>
-
-
     </com.google.android.material.card.MaterialCardView>
 
+    <ImageView
+        android:id="@+id/highFiveImgRcv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/high_five"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/messageCardViewRecieve" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

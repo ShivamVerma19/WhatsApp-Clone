@@ -13,7 +13,7 @@ data class Message(
     val msg : String ,
     val msgId : String ,
     val senderId : String ,
-    val liked : Boolean = false ,
+    var liked : Boolean = false ,
     override val sentAt : Date = Date() ,
     val status : Int = 1 ,
     val type : String = "TEXT"

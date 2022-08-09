@@ -67,7 +67,7 @@ dependencies {
 
     //storage
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.2.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.2.2'
 
 
 
@@ -79,5 +79,9 @@ dependencies {
 
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
+
     implementation "com.vanniktech:emoji-google:0.15.0"
+
+
+    implementation 'com.firebaseui:firebase-ui-database:8.0.1'
 }

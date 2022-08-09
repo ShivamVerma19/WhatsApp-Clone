@@ -14,6 +14,7 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import com.vanniktech.emoji.EmojiManager
+import com.vanniktech.emoji.EmojiPopup
 import com.vanniktech.emoji.google.GoogleEmojiProvider
 import kotlinx.android.synthetic.main.activity_chat.*
 import java.util.*
@@ -69,6 +70,16 @@ class ChatActivity : AppCompatActivity() {
 
 
 
+        val emojiPopup = EmojiPopup(rootView, msgEdtv)
+        smileBtn.setOnClickListener {
+            emojiPopup.toggle()
+        }
+
+
+
+
+
+
         chatAdapter = ChatAdapter(chatList , currentUid)
 
         msgRv.apply {
@@ -77,6 +88,7 @@ class ChatActivity : AppCompatActivity() {
         }
 
         listenToMessage()
+
         sendBtn.setOnClickListener {
             msgEdtv.text?.let{
                 if(it.isNotEmpty()){
@@ -85,6 +97,18 @@ class ChatActivity : AppCompatActivity() {
                 }
             }
         }
+
+        chatAdapter.highFiveClick = { msgId : String , likedStatus : Boolean ->
+            updateHighFive(msgId , likedStatus)
+        }
+
+
+        updateReadCount()
+
+    }
+
+    private fun updateReadCount() {
+        getInbox(currentUid , friendId!!).child("count").setValue(0)
     }
 
 
@@ -202,7 +226,8 @@ class ChatActivity : AppCompatActivity() {
                 }
 
                 override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                    TODO("Not yet implemented")
+
+
                 }
 
                 override fun onChildRemoved(snapshot: DataSnapshot) {
@@ -234,5 +259,9 @@ class ChatActivity : AppCompatActivity() {
 
         chatAdapter.notifyItemInserted(chatList.size - 1)
         msgRv.scrollToPosition(chatList.size - 1)
+    }
+
+    private fun updateHighFive(msgId: String, likedStatus: Boolean) {
+         getMessages(friendId!!).child(msgId).updateChildren(mapOf("liked" to likedStatus))
     }
 }

@@ -11,7 +11,9 @@
     android:paddingBottom="4dp">
 
 
+
     <com.google.android.material.card.MaterialCardView
+        android:id = "@+id/messageCardViewSent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="0dp"
@@ -56,6 +58,14 @@
     </com.google.android.material.card.MaterialCardView>
 
 
+    <ImageView
+        android:id="@+id/highFiveImgSent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:src="@drawable/ic_high_five_inverted"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/messageCardViewSent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
