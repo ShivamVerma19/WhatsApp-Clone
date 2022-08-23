@@ -25,11 +25,13 @@ class InboxViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
             itemStatus.text = item.msg
 
-            Picasso.get()
-                .load(item.image)
-                .placeholder(R.drawable.defaultavatar)
-                .error(R.drawable.defaultavatar)
-                .into(itemIv)
+
+                Picasso.get()
+                    .load(item.image)
+                    .placeholder(R.drawable.defaultavatar)
+                    .error(R.drawable.defaultavatar)
+                    .into(itemIv)
+
 
             setOnClickListener {
                 onClick.invoke(item.name , item.image , item.from)
