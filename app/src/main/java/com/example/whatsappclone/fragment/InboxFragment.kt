@@ -1,4 +1,5 @@
 package com.example.whatsappclone.fragment
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -55,22 +56,24 @@ class InboxFragment : Fragment() {
         mAdapter = object  : FirebaseRecyclerAdapter<Inbox , InboxViewHolder>(options){
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InboxViewHolder {
-                   val itemView = layoutInflater.inflate(R.layout.list_item , parent , false)
-                   return InboxViewHolder(itemView)
+                val itemView = layoutInflater.inflate(R.layout.list_item , parent , false)
+                return InboxViewHolder(itemView)
             }
 
             override fun onBindViewHolder(holder: InboxViewHolder, position: Int, model: Inbox) {
 
-                holder.bind(item = model){ name : String , photo : String , id : String ->
 
-                    val intent = Intent(requireContext() , ChatActivity::class.java)
-                    intent.putExtra(ID  , id)
-                    intent.putExtra(NAME , name)
-                    intent.putExtra(PHOTO , photo)
+                    holder.bind(item = model) { name: String, photo: String, id: String ->
 
-                    startActivity(intent)
+                        val intent = Intent(requireContext(), ChatActivity::class.java)
+                        intent.putExtra(ID, id)
+                        intent.putExtra(NAME, name)
+                        intent.putExtra(PHOTO, photo)
+
+                        startActivity(intent)
+                    }
                 }
-            }
+
 
         }
     }
