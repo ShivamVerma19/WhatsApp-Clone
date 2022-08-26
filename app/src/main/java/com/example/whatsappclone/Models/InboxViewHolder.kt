@@ -27,7 +27,7 @@ class InboxViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
 
                 itemStatus.text = item.msg
 
-             Log.e("TAG" , item.image)
+
                 if(!item.image.isBlank()) {
                     Picasso.get()
                         .load(item.image)
