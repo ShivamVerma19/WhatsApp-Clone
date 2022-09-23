@@ -63,16 +63,16 @@ class InboxFragment : Fragment() {
             override fun onBindViewHolder(holder: InboxViewHolder, position: Int, model: Inbox) {
 
 
-                    holder.bind(item = model) { name: String, photo: String, id: String ->
+                holder.bind(item = model) { name: String, photo: String, id: String ->
 
-                        val intent = Intent(requireContext(), ChatActivity::class.java)
-                        intent.putExtra(ID, id)
-                        intent.putExtra(NAME, name)
-                        intent.putExtra(PHOTO, photo)
+                    val intent = Intent(requireContext(), ChatActivity::class.java)
+                    intent.putExtra(ID, id)
+                    intent.putExtra(NAME, name)
+                    intent.putExtra(PHOTO, photo)
 
-                        startActivity(intent)
-                    }
+                    startActivity(intent)
                 }
+            }
 
 
         }

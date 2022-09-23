@@ -2,10 +2,12 @@ package com.example.whatsappclone
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
+import android.widget.Toast
 import com.example.whatsappclone.Adapters.ScreenSliderAdapter
+import com.example.whatsappclone.fragment.PeopleFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
                 1 -> tab.text = "PEOPLE"
             }
         }).attach()
+
+
     }
 
 

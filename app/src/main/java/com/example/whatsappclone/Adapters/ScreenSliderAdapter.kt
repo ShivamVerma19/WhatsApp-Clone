@@ -18,3 +18,4 @@ class ScreenSliderAdapter(fa : FragmentActivity) : FragmentStateAdapter(fa) {
         }
     }
 }
+
